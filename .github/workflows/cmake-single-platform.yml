@@ -26,7 +26,7 @@ jobs:
     - name: Checkout GoogleTest
       uses: actions/checkout@v4
       with:
-        repository: https://github.com/google/googletest.git
+        repository: google/googletest
         path: gtest
 
     - name: Configure GoogleTest
