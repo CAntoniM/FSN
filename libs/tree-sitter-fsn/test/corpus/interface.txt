@@ -1,0 +1,387 @@
+==================
+basic interface  
+==================
+
+interface test {
+    test(foo: int, bar: bool) -> char;
+    like(foo: char, bar: string ) -> char;
+}
+
+----
+    (source_file
+        (defintion
+            (interface_def
+                (interface_keyword)
+                (identifier)
+                (operation_def
+                    (identifier)
+                    (operation_params
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                    )
+                    (type_ref
+                        (standard_type_ref                        
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (operation_def
+                    (identifier)
+                    (operation_params
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                    )
+                (type_ref
+                    (standard_type_ref
+                        (scoped_name
+                            (identifier)
+                        )
+                    )
+                )
+                )
+            )
+        )
+    )
+
+==================
+basic interface  
+==================
+
+interface test {
+    test(foo: int = 4, bar: bool = false) -> char;
+}
+
+----
+    (source_file
+        (defintion
+            (interface_def
+                (interface_keyword)
+                (identifier)
+                (operation_def
+                    (identifier)
+                    (operation_params
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                            (litteral
+                                (int_literal
+                                    (deciaml_literal)
+                                )
+                            )
+                        )
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                            (litteral
+                                (bool_literal)
+                            )
+                        )
+                    )
+                    (type_ref
+                        (standard_type_ref                        
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+==================
+interface sequences 
+==================
+
+interface test {
+    test(foo: int[4], bar: bool[2]) -> char[...];
+}
+
+----
+    (source_file
+        (defintion
+            (interface_def
+                (interface_keyword)
+                (identifier)
+                (operation_def
+                    (identifier)
+                    (operation_params
+                        
+                        (operation_param
+                            (identifier)
+                                (type_ref
+                                    (standard_type_ref
+                                        (scoped_name
+                                            (identifier)
+                                        )
+                                    )
+                                    (sequence_specifier
+                                        (deciaml_literal)
+                                    )
+                                )
+                            )
+
+                            (operation_param
+                                (identifier)
+                                (type_ref
+                                    (standard_type_ref
+                                        (scoped_name
+                                            (identifier)
+                                        )
+                                )
+                                (sequence_specifier
+                                    (deciaml_literal)
+                                )
+                            )
+                        )
+                    )
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (spread_operator)
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+==================
+templated interface  
+==================
+template<a,b>
+interface test {
+    test(foo: a, bar: bool) -> char;
+    like(foo: char, bar: b ) -> a;
+}
+
+----
+    (source_file
+        (defintion
+
+            (interface_def
+                (template_def
+                    (template_keyword)
+                    (identifier)
+                    (identifier)
+                )
+                (interface_keyword)
+                (identifier)
+                (operation_def
+                    (identifier)
+                    (operation_params
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                    )
+                    (type_ref
+                        (standard_type_ref                        
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (operation_def
+                    (identifier)
+                    (operation_params
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                    )
+                (type_ref
+                    (standard_type_ref
+                        (scoped_name
+                            (identifier)
+                        )
+                    )
+                )
+                )
+            )
+        )
+    )
+
+==================
+interface full 
+==================
+
+template<a,b,c>
+interface test {
+    test( first: a, second: b[...], foo: int[4] = 4, bar: bool[2] = false) -> char[...];
+}
+
+----
+    (source_file
+        (defintion
+            (interface_def
+                (template_def
+                    (template_keyword)
+                    (identifier)
+                    (identifier)
+                    (identifier)
+                )
+                (interface_keyword)
+                (identifier)
+                (operation_def
+                    (identifier)
+                    (operation_params
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                            )
+                        )
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                                (sequence_specifier
+                                    (spread_operator)
+                                )
+                            )
+                        )
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                                (sequence_specifier
+                                    (deciaml_literal)
+                                )
+                            )
+                            (litteral
+                                (int_literal
+                                    (deciaml_literal)
+                                )
+                            )
+                        )
+                        (operation_param
+                            (identifier)
+                            (type_ref
+                                (standard_type_ref
+                                    (scoped_name
+                                        (identifier)
+                                    )
+                                )
+                                (sequence_specifier
+                                    (deciaml_literal)
+                                )
+                            )
+                            (litteral
+                                (bool_literal)
+                            )
+                        )
+                    )
+                    (type_ref
+                        (standard_type_ref                        
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (spread_operator)
+                        )
+                    )
+                )
+            )
+        )
+    )

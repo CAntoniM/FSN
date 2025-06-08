@@ -1,0 +1,492 @@
+==================
+Struct statements 
+==================
+
+struct test {
+    byte: i8,
+    short: i16,
+    int: i32,
+    long: i64,
+    longlong: i128
+}
+
+----
+    (source_file
+        (defintion
+            (struct_def
+                (struct_keyword)
+                (identifier)
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+==================
+Struct default statements 
+==================
+
+struct test {
+    byte: i8 = 07,
+    short: i16 = 0xF,
+    int: i32 = 128,
+    c: char = 'a',
+    str: string = "test",
+    b: bool = false
+}
+
+----
+    (source_file
+        (defintion
+            (struct_def
+                (struct_keyword)
+                (identifier)
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (int_literal
+                            (octet_literal)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (int_literal
+                            (hex_literal)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (int_literal
+                            (deciaml_literal)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (char_literal
+                            (character)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (string_literal
+                            (string_content)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (bool_literal)
+                    )
+                )
+            )
+        )
+    )
+
+==================
+Struct Statements Sequence
+==================
+
+struct test {
+    byte: i8[...],
+    short: i16[3],
+    int: i32[12],
+    long: i64[...],
+    longlong: i128[948]
+}
+
+----
+    (source_file
+        (defintion
+            (struct_def
+                (struct_keyword)
+                (identifier)
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (spread_operator)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (deciaml_literal)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (deciaml_literal)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (spread_operator)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (deciaml_literal)
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+==================
+Struct template statements 
+==================
+
+template<foo,bar>
+struct test {
+    byte: i8,
+    short: foo,
+    int: bar,
+    long: i64,
+    longlong: i128
+}
+
+----
+    (source_file
+        (defintion
+            (struct_def
+                (template_def
+                    (template_keyword)
+                    (identifier)
+                    (identifier)
+                )
+                (struct_keyword)
+                (identifier)
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+==================
+Struct full test 
+==================
+
+template<foo,bar>
+struct test {
+    byte: i8[...] = 07,
+    short: i16[2] = 0xF,
+    int: i32 = 128,
+    c: char = 'a',
+    str: string = "test",
+    b: bool = false,
+    test: bar,
+    ofc: foo
+}
+
+----
+    (source_file
+        (defintion
+            (struct_def
+                (template_def
+                    (template_keyword)
+                    (identifier)
+                    (identifier)
+                )
+                (struct_keyword)
+                (identifier)
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (spread_operator)
+                        )
+                    )
+                    (litteral
+                        (int_literal
+                            (octet_literal)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (deciaml_literal)
+                        )
+                    )
+                    (litteral
+                        (int_literal
+                            (hex_literal)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (int_literal
+                            (deciaml_literal)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (char_literal
+                            (character)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (string_literal
+                            (string_content)
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (litteral
+                        (bool_literal)
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (member
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )

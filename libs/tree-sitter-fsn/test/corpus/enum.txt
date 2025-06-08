@@ -1,0 +1,429 @@
+==================
+enum statements 
+==================
+
+enum test {
+    abra,
+    bass,
+    cat,
+    dog,
+    eel,
+    fig,
+    goat,
+    haggis,
+    internet,
+    justice
+}
+
+----
+    (source_file
+        (defintion
+            (enum_def
+                (enum_keyword)
+                (identifier)
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                )
+            )
+        )
+    )
+
+==================
+typed enum statements 
+==================
+
+enum test {
+    abra: int,
+    bulbasaur,
+    castform: bool
+}
+
+----
+    (source_file
+        (defintion
+            (enum_def
+                (enum_keyword)
+                (identifier)
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+==================
+typed valued enum statements 
+==================
+
+enum test {
+    a: int = 1,
+    b = 0,
+    c: bool = 3
+}
+
+----
+    (source_file
+        (defintion
+            (enum_def
+                (enum_keyword)
+                (identifier)
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (int_literal
+                        (deciaml_literal)
+                    )
+                )
+                (enumeration
+                    (identifier)
+                    (int_literal
+                        (octet_literal)
+                    )
+                )
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )   
+                    (int_literal
+                        (deciaml_literal)
+                    )
+                )
+            )
+        )
+    )
+
+==================
+templated typed enum statements 
+==================
+
+template<foo,bar>
+enum test {
+    a: foo,
+    b,
+    c: bar
+}
+
+----
+    (source_file
+        (defintion
+            (enum_def
+                (template_def
+                    (template_keyword)
+                    (identifier)
+                    (identifier)
+                )
+                (enum_keyword)
+                (identifier)
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+==================
+templated typed valued enum statements 
+==================
+
+template<foo,bar>
+enum test {
+    a: foo = 3,
+    b = 07,
+    c: bar = 0x9
+}
+
+----
+    (source_file
+        (defintion
+            (enum_def
+                (template_def
+                    (template_keyword)
+                    (identifier)
+                    (identifier)
+                )
+                (enum_keyword)
+                (identifier)
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (int_literal
+                        (deciaml_literal)
+                    )
+                )
+                (enumeration
+                    (identifier)
+                    (int_literal
+                        (octet_literal)
+                    )
+                )
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                    )
+                    (int_literal
+                        (hex_literal)
+                    )
+                )
+            )
+        )
+    )
+
+==================
+typed sequence enum statements 
+==================
+
+enum test {
+    a: i8[...],
+    b,
+    c: bool[3]
+}
+
+----
+    (source_file
+        (defintion
+            (enum_def
+                (enum_keyword)
+                (identifier)
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (spread_operator)
+                        )
+                    )
+                )
+                (enumeration
+                    (identifier)
+                )
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (deciaml_literal)
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+==================
+typed sequence valued enum statements 
+==================
+
+enum test {
+    a: i8[...] = 3,
+    b = 0x8,
+    c: bool[3] = 03
+}
+
+----
+    (source_file
+        (defintion
+            (enum_def
+                (enum_keyword)
+                (identifier)
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (spread_operator)
+                        )
+                    )
+                    (int_literal
+                        (deciaml_literal)
+                    )
+                )
+                (enumeration
+                    (identifier)
+                    (int_literal
+                        (hex_literal)
+                    )
+                )
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (deciaml_literal)
+                        )
+                    )
+                    (int_literal
+                        (octet_literal)
+                    )
+                )
+            )
+        )
+    )
+
+==================
+templated typed sequence valued enum statements 
+==================
+
+template<foo,bar>
+enum test {
+    a: foo[...] = 3,
+    b = 0x8,
+    c: bar[3] = 03
+}
+
+----
+    (source_file
+        (defintion
+            (enum_def
+                (template_def
+                    (template_keyword)
+                    (identifier)
+                    (identifier)
+                )
+                (enum_keyword)
+                (identifier)
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (spread_operator)
+                        )
+                    )
+                    (int_literal
+                        (deciaml_literal)
+                    )
+                )
+                (enumeration
+                    (identifier)
+                    (int_literal
+                        (hex_literal)
+                    )
+                )
+                (enumeration
+                    (identifier)
+                    (type_ref
+                        (standard_type_ref
+                            (scoped_name
+                                (identifier)
+                            )
+                        )
+                        (sequence_specifier
+                            (deciaml_literal)
+                        )
+                    )
+                    (int_literal
+                        (octet_literal)
+                    )
+                )
+            )
+        )
+    )
