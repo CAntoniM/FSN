@@ -22,12 +22,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install Rust
-      run: apt --assume-yes install cargo
-
-    - name: Install Node
-      run: apt --assume-yes install nodejs
-
     - name: Install Tree Sitter
       run: cargo install tree-sitter
 
